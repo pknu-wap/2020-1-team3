@@ -1,10 +1,33 @@
-내용수
-정 내용수정 지웅 내용수정.
-내 용 을 수 정 한ㄷ ㅏ .
-.ㅇ
-.
-ㄴ
-수정두번째 수정 두번째 보입니까
-수정합니당~>~
-지웅 수정 7.00시 수정 합니다.
-ㅁㄴㅇㄹ
+var http = require('http');
+var fs =require('fs');
+var url=require('url');
+var qs = require ('querystring');
+
+var app= http.createsever(function(request,response){
+  var _url = request.url;
+  var queryData = url.parse(_url, true).query;
+  var pathname=url.parse(_url, true).pathname;
+
+if(pathname=='/')/*홈페이지 주소*/{
+  if(queryData.id==undefined){
+
+
+    response.writeHead(200);
+  }
+}
+else{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+})
+app.listen(3000);
