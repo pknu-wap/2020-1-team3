@@ -89,7 +89,7 @@ else if(queryData.id=='의류'){
   <html>
     <head>
       <meta charset="utf-8">
-      <title>${qurrystring.id}<title>
+      <title>의류</title>
       <style type="text/css">
       li{float:left;list-style:none;margin:15px;}
       li a{display:block;width:170px;height:50px;background:#a00;color:#fff;border:1px;font-size:20px;text-align:center;padding-center:30px;text-decoration:none;}
@@ -110,7 +110,8 @@ else if(queryData.id=='의류'){
 
       </ul>
     </body>
-  </html>`;
+  </html>
+`
   response.writeHead(200);
   response.end(tmp);
 
