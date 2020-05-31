@@ -37,7 +37,7 @@ if(pathname=='/')/*홈페이지 주소*/{
   if(queryData.id==undefined){/*querystring이 딱히 없이 접속하면 홈페이지로 이동*/
     fs.readdir("./category", function(err,filelist){
       var title='pket 프켓';
-      var description='본문 구현하지못했음';
+
       var tmp=`<!DOCTYPE html>
       <html lang="en" dir="ltr">
         <head>
@@ -68,7 +68,7 @@ if(pathname=='/')/*홈페이지 주소*/{
           #divCategory ul li a:hover{background: #FFA7A7}
           </style>
         <body>
-          <a href="main.html"><img src="pket main.png" width="30%"></a>
+          <a href="main.html"><img src="pket main.jpg" width="30%"></a>
             <div id="divCategory">
             <h2>category</h2>
             <ul>
@@ -89,7 +89,7 @@ else if(queryData.id=='의류'){
   <html>
     <head>
       <meta charset="utf-8">
-      <title>의류</title>
+      <title>${qurrystring.id}<title>
       <style type="text/css">
       li{float:left;list-style:none;margin:15px;}
       li a{display:block;width:170px;height:50px;background:#a00;color:#fff;border:1px;font-size:20px;text-align:center;padding-center:30px;text-decoration:none;}
