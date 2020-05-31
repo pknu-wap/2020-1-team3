@@ -72,10 +72,10 @@ if(pathname=='/')/*홈페이지 주소*/{
             <div id="divCategory">
             <h2>category</h2>
             <ul>
-              <li><a href="?/id=의류">의류</a></li>
-              <li><a href="?/id=스포츠">스포츠</a></li>
-              <li><a href="?/id=책">책</a></li>
-              <li><a href="?/id=자취">자취</a></li>
+              <li><a href="?id=의류">의류</a></li>
+              <li><a href="?id=스포츠">스포츠</a></li>
+              <li><a href="?id=책">책</a></li>
+              <li><a href="?id=자취">자취</a></li>
             </ul>
               </div>
         </body>
@@ -84,17 +84,46 @@ if(pathname=='/')/*홈페이지 주소*/{
       response.end(tmp);
     });
   }
+else if(queryData.id=='의류'){
+  var tmp=`<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>의류</title>
+      <style type="text/css">
+      li{float:left;list-style:none;margin:15px;}
+      li a{display:block;width:170px;height:50px;background:#a00;color:#fff;border:1px;font-size:20px;text-align:center;padding-center:30px;text-decoration:none;}
+      li a span{display:block;}
+      li a:hover{background:#810;text-decoration:none;}
+      </style>
+    </head>
+
+    <body>
+      <h1><font face="맑은 고딕"><p style="text-align: center">의류</font></h1>
+      <ul>
+
+        <li><a href="OUTER.html" target="_blank">OUTER</a></li>
+        <li><a href="TOP.html" target="_blank">TOP</a></li>
+        <li><a href="BOTTOM.html" target="_blank">BOTTOM</a></li>
+        <li><a href="ONEPIECE.html" target="_blank">ONE-PIECE</a></li>
+        <li><a href="ACC.html" target="_blank">ACC</a></li>
+
+      </ul>
+    </body>
+  </html>`;
+  response.writeHead(200);
+  response.end(tmp);
+
+
+
+}
 else{
-  fs.readdir("./cartegory", function(err,filelist){/*카테고리폴더밑에있는 파일리스트를 읽음*/
-    var list=cartegorylist(filelist);
-    var title=queryData.id;
     fs.readFile(`cartegory/${queryData.id}`,'utf8',function(err, description){
-      var tmp=templit(title,list,description);
+      var tmp=`${description}`;
       response.writeHead(200);
       response.end(tmp);
   });
-});
-}
+};
 }
 else{
   response.writeHead(404);/* 정해진 카테고리이외의 링크로 접속하면  아무것도 뜨지않음  */
