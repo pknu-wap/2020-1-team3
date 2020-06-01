@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OUTER</title>
+  <meta charset="utf-8">
+<style>
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button2 {background-color: #008CBA;} /* Blue */
+</style>
+</head>
+<body>
+    <h1><font face="맑은 고딕"><p style="text-align: center">OUTER</font></h1>
+<button class="button button2">jacket</button>
+<button class="button button2">coat</button>
+<button class="button button2">cardigan</button>
+</body>
+</html>

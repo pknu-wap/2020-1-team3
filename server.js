@@ -85,6 +85,14 @@ if(pathname=='/')/*홈페이지 주소*/{
     });
   }
 else if(queryData.id=='의류'){
+  fs.readdir('./category/의류',function(error, filelist){
+    var list='<ul>';
+    var i=0;
+    while(i<filelist.length){
+      list=list+`<li><a href="/?id=${filelist[i]}" target="_blank">${filelist[i]}</a></li>`;
+      i=i+1;
+    }
+    list=list+'<ul>';
   var tmp=`<!DOCTYPE html>
   <html>
     <head>
@@ -102,11 +110,7 @@ else if(queryData.id=='의류'){
       <h1><font face="맑은 고딕"><p style="text-align: center">의류</font></h1>
       <ul>
 
-        <li><a href="OUTER.html" target="_blank">OUTER</a></li>
-        <li><a href="TOP.html" target="_blank">TOP</a></li>
-        <li><a href="BOTTOM.html" target="_blank">BOTTOM</a></li>
-        <li><a href="ONEPIECE.html" target="_blank">ONE-PIECE</a></li>
-        <li><a href="ACC.html" target="_blank">ACC</a></li>
+        ${list}
 
       </ul>
     </body>
@@ -114,12 +118,11 @@ else if(queryData.id=='의류'){
 `
   response.writeHead(200);
   response.end(tmp);
-
-
-
+});
 }
 else{
-    fs.readFile(`cartegory/${queryData.id}`,'utf8',function(err, description){
+  console.log(queryData.id)
+    fs.readFile(`category/의류/${queryData.id}`,'utf8',function(err, description){
       var tmp=`${description}`;
       response.writeHead(200);
       response.end(tmp);
@@ -128,7 +131,7 @@ else{
 }
 else{
   response.writeHead(404);/* 정해진 카테고리이외의 링크로 접속하면  아무것도 뜨지않음  */
-  response.end('Not found');
+  response.end('Not fond');
 }
 });
 app.listen(3000);
